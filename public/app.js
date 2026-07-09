@@ -27,10 +27,12 @@ fileInput.addEventListener("change", async () => {
 
     const result = await response.json();
 
+    const text = result.content?.[0]?.text || "Inget svar från Claude";
+
     uploadBox.innerHTML = `
         <div class="upload-icon">✅</div>
         <h3>Klar!</h3>
-        <pre>${JSON.stringify(result, null, 2)}</pre>
+        <span>${text}</span>
     `;
 
 });
